@@ -1,0 +1,13 @@
+SELECT 
+    service_id,
+    branch_id,
+    ROUND(AVG(time_taken)::numeric, 2) AS avg_time_taken,
+    ROUND(MAX(time_taken)::numeric, 2) AS max_time_taken
+FROM 
+    Request
+GROUP BY 
+    service_id, 
+    branch_id
+ORDER BY
+    service_id,
+    branch_id

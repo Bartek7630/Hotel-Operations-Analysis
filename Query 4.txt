@@ -1,0 +1,14 @@
+SELECT 
+    service_id,
+    branch_id,
+    ROUND(AVG(rating)::numeric, 2) AS avg_rating
+FROM 
+    Request
+GROUP BY 
+    service_id, 
+    branch_id
+HAVING 
+    AVG(rating) < 4.5
+ORDER BY
+   service_id
+   branch_id

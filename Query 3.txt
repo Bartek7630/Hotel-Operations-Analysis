@@ -1,0 +1,17 @@
+SELECT 
+    s.description AS description,
+    b.id,
+    b.location,
+    r.id AS request_id,
+    r.rating
+FROM 
+    Request r
+JOIN 
+    Branch b ON r.branch_id = b.id
+JOIN 
+    Service s ON r.service_id = s.id
+WHERE 
+    s.description IN ('Meal', 'Laundry')
+    AND b.location IN ('EMEA', 'LATAM')
+ORDER BY 
+    r.rating ASC
